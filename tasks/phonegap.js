@@ -58,6 +58,18 @@
         return done();
       });
     });
+    grunt.registerTask('phonegap:serve', 'Serve a Phonegap application', function() {
+      var device, done, helpers, platform, serve;
+      helpers = require('./helpers')(grunt);
+      helpers.mergeConfig(defaults);
+      serve = require('./serve')(grunt);
+      platform = this.args[0] || _.first(grunt.config.get('phonegap.config.platforms'));
+      device = this.args[1] || '';
+      done = this.async();
+      return serve.serve(platform, device, function() {
+        return done();
+      });
+    });
     grunt.registerTask('phonegap:run', 'Run a Phonegap application', function() {
       var device, done, helpers, platform, run;
       helpers = require('./helpers')(grunt);
