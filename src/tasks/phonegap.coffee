@@ -40,6 +40,17 @@ module.exports = (grunt) ->
     build.run platforms, (err, result) ->
       if err then grunt.fatal err
       done()
+  
+  grunt.registerTask 'phonegap:serve', 'Serve a Phonegap application', ->
+    helpers = require('./helpers')(grunt)
+    helpers.mergeConfig defaults
+    serve = require('./serve')(grunt)
+
+    platform = @args[0] || _.first(grunt.config.get('phonegap.config.platforms'))
+    device  = @args[1] || ''
+
+    done = @async()
+    serve.serve platform, device, -> done()
 
   grunt.registerTask 'phonegap:run', 'Run a Phonegap application', ->
     helpers = require('./helpers')(grunt)
