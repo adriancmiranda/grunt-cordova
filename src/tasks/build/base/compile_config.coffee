@@ -15,7 +15,8 @@ module.exports = compileConfig = (grunt) ->
 
     if grunt.util.kindOf(configXml) == 'string'
       grunt.log.writeln "Copying static #{configXml}"
-      yield cp configXml, root
+      # yield cp configXml, root
+      cp configXml, root
       cp configXml, dest, (err) ->
         if fn then fn(err)
 
