@@ -19,7 +19,8 @@
         root = path.join(phonegapRoot, 'config.xml');
         if (grunt.util.kindOf(configXml) === 'string') {
           grunt.log.writeln("Copying static " + configXml);
-          yield cp(configXml, root);
+          // yield cp(configXml, root);
+          cp(configXml, root);
           return cp(configXml, dest, function(err) {
             if (fn) {
               return fn(err);
