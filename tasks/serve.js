@@ -5,9 +5,10 @@
     var helpers, local, remote;
     helpers = require('./helpers')(grunt);
     local = function(platform, device, fn) {
-      var cmd;
+      var cmd, cwd;
       cmd = "phonegap serve";
-      return helpers.exec(cmd, fn);
+      cwd = grunt.config.get('phonegap.config.path');
+      return helpers.exec(cmd, fn, cwd);
     };
     return {
       serve: function(platform, device, fn) {
