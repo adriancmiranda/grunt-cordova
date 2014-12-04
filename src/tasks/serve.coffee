@@ -9,7 +9,8 @@ module.exports = serve = (grunt) ->
   # @param [Function] fn Optional callback to serve when the child process terminates.
   local = (platform, device, fn) ->
     cmd = "phonegap serve"
-    helpers.exec cmd, fn
+    cwd = grunt.config.get('phonegap.config.path')
+    helpers.exec cmd, fn, cwd
 
   serve: (platform, device, fn) ->
     local platform, device, fn
