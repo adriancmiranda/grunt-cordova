@@ -7,9 +7,8 @@ module.exports = serve = (grunt) ->
   # @param [String] platform The platform to build and serve on
   # @param [String] device One of `$ adb devices` or "emulator"
   # @param [Function] fn Optional callback to serve when the child process terminates.
-  local = (platform, device, fn) ->
+  local = (platform, device, fn, cwd = grunt.config.get('phonegap.config.path')) ->
     cmd = "phonegap serve"
-    cwd = grunt.config.get('phonegap.config.path')
     helpers.exec cmd, fn, cwd
 
   serve: (platform, device, fn) ->
