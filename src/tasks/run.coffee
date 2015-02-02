@@ -8,7 +8,7 @@ module.exports = run = (grunt) ->
   # @param [String] device One of `$ adb devices` or "emulator"
   # @param [Function] fn Optional callback to run when the child process terminates.
   local = (platform, device, fn) ->
-    cmd = "phonegap run #{platform} #{helpers.setVerbosity()}"
+    cmd = "cordova run #{platform} #{helpers.setVerbosity()}"
     if device
       if device == 'emulator'
         cmd += ' --emulator'
@@ -23,7 +23,7 @@ module.exports = run = (grunt) ->
   # @param [String] device Ignored
   # @param [Function] fn Optional callback to run when the child process terminates.
   remote = (platform, device, fn) ->
-    cmd = "phonegap remote run #{platform} #{helpers.setVerbosity()}"
+    cmd = "cordova remote run #{platform} #{helpers.setVerbosity()}"
     helpers.exec cmd, fn
 
   run: (platform, device, fn) ->
