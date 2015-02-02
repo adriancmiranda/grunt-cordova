@@ -113,7 +113,7 @@
       username = grunt.config.get('phonegap.config.remote.username');
       password = grunt.config.get('phonegap.config.remote.password');
       done = this.async();
-      cmd = "phonegap remote login --username " + username + " --password " + password;
+      cmd = "cordova remote login --username " + username + " --password " + password;
       return helpers.exec(cmd, function() {
         return done();
       });
@@ -123,7 +123,7 @@
       helpers = require('./helpers')(grunt);
       helpers.mergeConfig(defaults);
       done = this.async();
-      return helpers.exec('phonegap remote logout', function() {
+      return helpers.exec('cordova remote logout', function() {
         return done();
       });
     });
