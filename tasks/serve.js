@@ -6,7 +6,7 @@
     helpers = require('./helpers')(grunt);
     local = function(platform, device, fn) {
       var cmd, cwd;
-      cmd = "phonegap serve";
+      cmd = "cordova serve";
       cwd = grunt.config.get('phonegap.config.path');
       return helpers.exec(cmd, fn, cwd);
     };
