@@ -92,11 +92,11 @@ module.exports = (grunt) ->
     password = grunt.config.get 'phonegap.config.remote.password'
 
     done = @async()
-    cmd = "phonegap remote login --username #{username} --password #{password}"
+    cmd = "cordova remote login --username #{username} --password #{password}"
     helpers.exec cmd, -> done()
 
   grunt.registerTask 'phonegap:logout', 'Log out of the remote build service', ->
     helpers = require('./helpers')(grunt)
     helpers.mergeConfig defaults
     done = @async()
-    helpers.exec 'phonegap remote logout', -> done()
+    helpers.exec 'cordova remote logout', -> done()
