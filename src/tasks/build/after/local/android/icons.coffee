@@ -10,7 +10,7 @@ module.exports = icons = (grunt) ->
     best = null
 
     if icons?.ldpi || icons?.mdpi || icons?.hdpi || icons?.xhdpi
-      grunt.warn "`phonegap.config.icons` has moved to `phonegap.config.icons.<platform>`.\nCheck the example in the grunt-phonegap README and update your Gruntfile accordingly.\n"
+      grunt.warn "`cordova.config.icons` has moved to `cordova.config.icons.<platform>`.\nCheck the example in the grunt-phonegap README and update your Gruntfile accordingly.\n"
       icons.android = icons
 
     if icons?.android?.ldpi
