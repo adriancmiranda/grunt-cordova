@@ -10,17 +10,13 @@
     helpers = require('../../helpers')(grunt);
     return {
       run: function(fn) {
-        var compiled, configXml, dest, root, phonegapPath, phonegapRoot, template;
+        var compiled, configXml, dest, phonegapPath, template;
         grunt.log.writeln('Compiling config.xml');
         phonegapPath = helpers.config('path');
-        phonegapRoot = helpers.config('root');
         configXml = helpers.config('config');
         dest = path.join(phonegapPath, 'config.xml');
-        root = path.join(phonegapRoot, 'config.xml');
         if (grunt.util.kindOf(configXml) === 'string') {
           grunt.log.writeln("Copying static " + configXml);
-          // yield cp(configXml, root);
-          cp(configXml, root);
           return cp(configXml, dest, function(err) {
             if (fn) {
               return fn(err);
@@ -32,7 +28,6 @@
           compiled = grunt.template.process(template, {
             data: configXml.data
           });
-          grunt.file.write(root, compiled);
           grunt.file.write(dest, compiled);
           if (fn) {
             return fn();
