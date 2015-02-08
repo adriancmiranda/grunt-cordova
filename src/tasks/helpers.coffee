@@ -33,8 +33,8 @@ module.exports = helpers = (grunt) ->
   # @param [Object] defaults The default config object
   # @return [Object] The merged config object
   mergeConfig: (defaults) ->
-    grunt.config.set 'phonegap.config'
-      , _.defaults grunt.config.get('phonegap.config'), defaults
+    grunt.config.set 'cordova.config'
+      , _.defaults grunt.config.get('cordova.config'), defaults
 
   # Execute the given command in a child process, and then run the
   # callback function if one is provided.
@@ -44,10 +44,10 @@ module.exports = helpers = (grunt) ->
   #
   # @param [String] cmd The shell command to execute
   # @param [Function] fn An optional function to call when the child process terminates.
-  exec: (cmd, fn, cwd = grunt.config.get('phonegap.config.path')) ->
+  exec: (cmd, fn, cwd = grunt.config.get('cordova.config.path')) ->
     grunt.log.writeln "Running: #{cmd}"
     options =
-      maxBuffer: (grunt.config.get('phonegap.config.maxBuffer') * 1024)
+      maxBuffer: (grunt.config.get('cordova.config.maxBuffer') * 1024)
       cwd: cwd
 
     proc = exec cmd, options, (err, stdout, stderr) =>
@@ -64,13 +64,13 @@ module.exports = helpers = (grunt) ->
     if grunt.file.exists(target) then grunt.file.delete(target)
 
   setVerbosity: ->
-    if grunt.config.get('phonegap.config.verbose') then '-V' else ''
+    if grunt.config.get('cordova.config.verbose') then '-V' else ''
 
   isRemote: (platform) ->
     remote = helpers(grunt).config 'remote'
     if remote?.platforms? && platform in remote.platforms
-      grunt.config.requires 'phonegap.config.remote.username'
-      grunt.config.requires 'phonegap.config.remote.password'
+      grunt.config.requires 'cordova.config.remote.username'
+      grunt.config.requires 'cordova.config.remote.password'
       return true
     else
       return false
@@ -84,7 +84,7 @@ module.exports = helpers = (grunt) ->
       false
 
   config: (property) ->
-    value = grunt.config.get("phonegap.config.#{property}")
+    value = grunt.config.get("cordova.config.#{property}")
     if typeof value == 'function'
       return value()
     else
