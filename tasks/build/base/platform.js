@@ -8,11 +8,18 @@
   module.exports = platform = function(grunt) {
     var buildPlatform, helpers, local, remote, runAfter;
     helpers = require('../../helpers')(grunt);
+    createPlatform = function (platform, fn) {
+      return helpers.exec("cordova platform add " + platform, fn);
+    };
     remote = function(platform, fn) {
-      return helpers.exec("cordova remote build " + platform + " " + (helpers.setVerbosity()), fn);
+      return createPlatform(platform, function () {
+        return helpers.exec("cordova remote build " + platform + " " + (helpers.setVerbosity()), fn);
+      });
     };
     local = function(platform, fn) {
-      return helpers.exec("cordova build " + platform + " " + (helpers.setVerbosity()), fn);
+      return createPlatform(platform, function () {
+        return helpers.exec("cordova build " + platform + " " + (helpers.setVerbosity()), fn);
+      });
     };
     runAfter = function(provider, platform, fn) {
       var adapter;
