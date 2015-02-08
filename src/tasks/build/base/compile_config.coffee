@@ -10,7 +10,7 @@ module.exports = compileConfig = (grunt) ->
     phonegapRoot = helpers.config 'root'
     configXml = helpers.config 'config'
 
-    dest = path.join phonegapPath, 'www', 'config.xml'
+    dest = path.join phonegapPath, 'config.xml'
     root = path.join phonegapRoot, 'config.xml'
 
     if grunt.util.kindOf(configXml) == 'string'
