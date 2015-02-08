@@ -29,7 +29,7 @@ module.exports = (grunt) ->
     debuggable: false
     remote: {}
 
-  grunt.registerTask 'phonegap:build', 'Build as a Phonegap application', (platform) ->
+  grunt.registerTask 'cordova:build', 'Build as a Phonegap application', (platform) ->
     helpers = require('./helpers')(grunt)
     helpers.mergeConfig defaults
     build = require('./build')(grunt)
@@ -41,61 +41,61 @@ module.exports = (grunt) ->
       if err then grunt.fatal err
       done()
   
-  grunt.registerTask 'phonegap:serve', 'Serve a Phonegap application', ->
+  grunt.registerTask 'cordova:serve', 'Serve a Phonegap application', ->
     helpers = require('./helpers')(grunt)
     helpers.mergeConfig defaults
     serve = require('./serve')(grunt)
 
-    platform = @args[0] || _.first(grunt.config.get('phonegap.config.platforms'))
+    platform = @args[0] || _.first(grunt.config.get('cordova.config.platforms'))
     device  = @args[1] || ''
 
     done = @async()
     serve.serve platform, device, -> done()
 
-  grunt.registerTask 'phonegap:run', 'Run a Phonegap application', ->
+  grunt.registerTask 'cordova:run', 'Run a Phonegap application', ->
     helpers = require('./helpers')(grunt)
     helpers.mergeConfig defaults
     run = require('./run')(grunt)
 
-    platform = @args[0] || _.first(grunt.config.get('phonegap.config.platforms'))
+    platform = @args[0] || _.first(grunt.config.get('cordova.config.platforms'))
     device  = @args[1] || ''
 
     done = @async()
     run.run platform, device, -> done()
 
-  grunt.registerTask 'phonegap:release', 'Create a distributable release', ->
+  grunt.registerTask 'cordova:release', 'Create a distributable release', ->
     helpers = require('./helpers')(grunt)
     helpers.mergeConfig defaults
     release = require('./release')(grunt)
 
-    platform = @args[0] || _.first(grunt.config.get('phonegap.config.platforms'))
+    platform = @args[0] || _.first(grunt.config.get('cordova.config.platforms'))
     done = @async()
     release.on platform, -> done()
 
-  grunt.registerTask 'phonegap:debug', 'Create a debug release', ->
+  grunt.registerTask 'cordova:debug', 'Create a debug release', ->
     helpers = require('./helpers')(grunt)
     helpers.mergeConfig defaults
     debug = require('./debug')(grunt)
 
-    platform = @args[0] || _.first(grunt.config.get('phonegap.config.platforms'))
+    platform = @args[0] || _.first(grunt.config.get('cordova.config.platforms'))
     done = @async()
     debug.on platform, -> done()
 
-  grunt.registerTask 'phonegap:login', 'Log into the remote build service', ->
+  grunt.registerTask 'cordova:login', 'Log into the remote build service', ->
     helpers = require('./helpers')(grunt)
     helpers.mergeConfig defaults
 
-    grunt.config.requires 'phonegap.config.remote.username'
-    grunt.config.requires 'phonegap.config.remote.password'
+    grunt.config.requires 'cordova.config.remote.username'
+    grunt.config.requires 'cordova.config.remote.password'
 
-    username = grunt.config.get 'phonegap.config.remote.username'
-    password = grunt.config.get 'phonegap.config.remote.password'
+    username = grunt.config.get 'cordova.config.remote.username'
+    password = grunt.config.get 'cordova.config.remote.password'
 
     done = @async()
     cmd = "cordova remote login --username #{username} --password #{password}"
     helpers.exec cmd, -> done()
 
-  grunt.registerTask 'phonegap:logout', 'Log out of the remote build service', ->
+  grunt.registerTask 'cordova:logout', 'Log out of the remote build service', ->
     helpers = require('./helpers')(grunt)
     helpers.mergeConfig defaults
     done = @async()
