@@ -9,7 +9,7 @@
     var defaults;
     defaults = {
       root: 'www',
-      config: 'www/config.xml',
+      config: 'config.xml',
       path: 'build',
       cleanBeforeBuild: true,
       cordova: '.cordova',
