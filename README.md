@@ -105,7 +105,7 @@ grunt.initConfig({
   phonegap: {
     config: {
       root: 'www',
-      config: 'www/config.xml',
+      config: 'config.xml',
       cordova: '.cordova',
       html : 'index.html', // (Optional) You may change this to any other.html
       path: 'phonegap',
