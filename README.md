@@ -1,4 +1,4 @@
-# Grunt: Phonegap
+# Grunt: Cordova
 > A [Grunt](http://gruntjs.com/) plugin to provide build tasks for [Phonegap](http://phonegap.com/) applications
 
 [![Build Status](http://ci.ldk.io/logankoester/grunt-phonegap/badge)](http://ci.ldk.io/logankoester/grunt-phonegap/)
