@@ -110,7 +110,7 @@ grunt.initConfig({
       html : 'index.html', // (Optional) You may change this to any other.html
       path: 'phonegap',
       cleanBeforeBuild: true // when false the build path doesn't get regenerated
-      plugins: ['/local/path/to/plugin', 'http://example.com/path/to/plugin.git'],
+      plugins: ['/local/path/to/plugin', { url:'http://example.com/path/to/plugin.git', vars:{ APP_ID:'0123456789' }}],
       platforms: ['android'],
       maxBuffer: 200, // You may need to raise this for iOS.
       verbose: false,
