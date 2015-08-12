@@ -24,7 +24,7 @@
       if (uri.protocol() === '' && (plugin.substr(0, 1) === '.' || plugin.substr(0, 1) === '/')) {
         plugin = path.resolve(uri.path());
       }
-      cmd = "cordova plugin add " + plugin + " " + (helpers.setVerbosity());
+      cmd = "cordova plugin add " + plugin + vars + " " + (helpers.setVerbosity());
       return helpers.exec(cmd, fn);
     };
     return {
