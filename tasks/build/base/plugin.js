@@ -19,7 +19,7 @@
       if(({}.toString).call(plugin).replace(/^(\[object(\s|\uFEFF|\xA0))|(\])$/g, '').toLowerCase() === 'object'){
         if(plugin.vars){
           for(key in plugin.vars){
-            vars += ' --variable '+key+'='plugin.vars[key];
+            vars += ' --variable '+key+'='+plugin.vars[key];
           }
         }
         if(plugin.url){
