@@ -17,7 +17,6 @@
           for(key in plugin.vars){
             vars += ' --variable '+key+'='+plugin.vars[key];
           }
-          console.log("cordova plugin add " + plugin.url + vars + " " + (helpers.setVerbosity()));
         }
         plugin = plugin.url;
       }
