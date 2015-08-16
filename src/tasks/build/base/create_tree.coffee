@@ -8,7 +8,7 @@ module.exports = createTree = (grunt) ->
     grunt.log.writeln 'Creating directory tree'
     phonegapPath = helpers.config 'path'
 
-    _.each ['plugins', 'platforms', 'www', '.cordova'], (dir) ->
+    _.each ['plugins', 'platforms', 'res', 'www', '.cordova'], (dir) ->
       grunt.file.mkdir path.join(phonegapPath, dir)
 
     _.each platforms, (platform) =>
