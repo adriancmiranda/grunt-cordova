@@ -8,7 +8,7 @@
     helpers = require('../../../../helpers')(grunt);
     return {
       build: function(fn) {
-        var appName, phonegapPath, res, _ref, _ref1, _ref10, _ref11, _ref12, _ref13, _ref14, _ref15, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
+        var appName, phonegapPath, res, _ref, _ref1, _ref10, _ref11, _ref12, _ref13, _ref14, _ref15, _ref16, _ref2, _ref3, _ref4, _ref5, _ref6, _ref7, _ref8, _ref9;
         icons = helpers.config('icons');
         phonegapPath = helpers.config('path');
         appName = helpers.config('name');
@@ -90,6 +90,11 @@
         }
         if (icons != null ? (_ref15 = icons.ios) != null ? _ref15.icon512x2 : void 0 : void 0) {
           grunt.file.copy(icons.ios.icon512x2, path.join(res, 'icon-512@2x.png'), {
+            encoding: null
+          });
+        }
+        if (icons != null ? (_ref16 = icons.ios) != null ? _ref16.icon60x3 : void 0 : void 0) {
+          grunt.file.copy(icons.ios.icon60x3, path.join(res, 'icon-60@3x.png'), {
             encoding: null
           });
         }
