@@ -5,6 +5,7 @@ module.exports = build = (grunt) ->
   base =
     clean: require('./build/base/clean')(grunt).run
     createTree: require('./build/base/create_tree')(grunt).run
+    cloneRes: require('./build/base/clone_res')(grunt).run
     cloneRoot: require('./build/base/clone_root')(grunt).run
     indexHtml: require('./build/base/index_html')(grunt).run
     cloneCordova: require('./build/base/clone_cordova')(grunt).run
@@ -20,6 +21,7 @@ module.exports = build = (grunt) ->
     fluid(base)
       .clean()
       .createTree(platforms)
+      .cloneRes()
       .cloneRoot()
       .indexHtml()
       .cloneCordova()
