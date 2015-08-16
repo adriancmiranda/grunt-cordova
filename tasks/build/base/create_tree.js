@@ -13,7 +13,7 @@
         var phonegapPath;
         grunt.log.writeln('Creating directory tree');
         phonegapPath = helpers.config('path');
-        _.each(['plugins', 'platforms', 'www', '.cordova'], function(dir) {
+        _.each(['plugins', 'platforms', 'res', 'www', '.cordova'], function(dir) {
           return grunt.file.mkdir(path.join(phonegapPath, dir));
         });
         _.each(platforms, (function(_this) {
