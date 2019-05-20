@@ -17,12 +17,12 @@ module.exports = applicationName = (grunt) ->
     debuggable = helpers.config 'debuggable'
     phonegapPath = helpers.config 'path'
 
-    manifestPath = path.join phonegapPath, 'platforms', 'android', 'AndroidManifest.xml'
+    manifestPath = path.join phonegapPath, 'platforms/android/CordovaLib/AndroidManifest.xml'
     manifest = grunt.file.read manifestPath
     grunt.log.writeln "Setting debuggable in '#{manifestPath}' to #{debuggable}"
     doc = new dom().parseFromString manifest, 'text/xml'
-
-    doc.getElementsByTagName('application')[0].setAttribute('android:debuggable', debuggable)
+    app = doc.getElementsByTagName('application')[0]
+    app.setAttribute('android:debuggable', debuggable)
 
     grunt.file.write manifestPath, doc
 

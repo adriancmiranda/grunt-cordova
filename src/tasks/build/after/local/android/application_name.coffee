@@ -10,7 +10,7 @@ module.exports = applicationName = (grunt) ->
     if name
       phonegapPath = helpers.config 'path'
 
-      manifestPath = path.join phonegapPath, 'platforms', 'android', 'AndroidManifest.xml'
+      manifestPath = path.join phonegapPath, 'platforms/android/CordovaLib/AndroidManifest.xml'
       manifest = grunt.file.read manifestPath
       grunt.log.writeln "Setting application name in '#{manifestPath}' to #{name}"
       doc = new dom().parseFromString manifest, 'text/xml'

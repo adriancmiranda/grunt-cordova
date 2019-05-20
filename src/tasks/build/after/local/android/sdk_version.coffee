@@ -10,7 +10,7 @@ module.exports = sdkVersion = (grunt) ->
     if targetSdkVersion
       phonegapPath = helpers.config 'path'
 
-      manifestPath = path.join phonegapPath, 'platforms', 'android', 'AndroidManifest.xml'
+      manifestPath = path.join phonegapPath, 'platforms/android/CordovaLib/AndroidManifest.xml'
       manifest = grunt.file.read manifestPath
 
       grunt.log.writeln "Setting targetSdkVersion to #{targetSdkVersion} in '#{manifestPath}'"
@@ -27,11 +27,11 @@ module.exports = sdkVersion = (grunt) ->
     if minSdkVersion
       phonegapPath = helpers.config 'path'
 
-      manifestPath = path.join phonegapPath, 'platforms', 'android', 'AndroidManifest.xml'
+      manifestPath = path.join phonegapPath, 'platforms/android/CordovaLib/AndroidManifest.xml'
       manifest = grunt.file.read manifestPath
 
       grunt.log.writeln "Setting minSdkVersion to #{minSdkVersion} in '#{manifestPath}'"
-      
+
       doc = new dom().parseFromString manifest, 'text/xml'
       doc.getElementsByTagName('uses-sdk')[0].setAttribute('android:minSdkVersion', minSdkVersion)
       grunt.file.write manifestPath, doc
