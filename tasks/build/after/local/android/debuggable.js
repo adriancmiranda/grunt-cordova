@@ -14,7 +14,9 @@
         dom = xmldom.DOMParser;
         debuggable = helpers.config('debuggable');
         phonegapPath = helpers.config('path');
-        manifestPath = path.join(phonegapPath, 'platforms/android/CordovaLib/AndroidManifest.xml');
+        manifestPath = helpers.config('manifestPath');
+        manifestPath = manifestPath || 'platforms/android/CordovaLib/AndroidManifest.xml';
+        manifestPath = path.join(phonegapPath, manifestPath);
         manifest = grunt.file.read(manifestPath);
         grunt.log.writeln("Setting debuggable in '" + manifestPath + "' to " + debuggable);
         doc = new dom().parseFromString(manifest, 'text/xml');
