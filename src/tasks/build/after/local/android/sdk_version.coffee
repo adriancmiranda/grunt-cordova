@@ -9,7 +9,7 @@ module.exports = sdkVersion = (grunt) ->
     targetSdkVersion = helpers.config 'targetSdkVersion'
     if targetSdkVersion
       phonegapPath = helpers.config 'path'
-      manifestPath = helpers.config 'manifestPath'
+      manifestPath = helpers.config 'androidManifestPath'
       manifestPath = manifestPath || 'platforms/android/CordovaLib/AndroidManifest.xml'
       manifestPath = path.join phonegapPath, manifestPath
       manifest = grunt.file.read manifestPath
